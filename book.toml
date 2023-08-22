@@ -1,0 +1,6 @@
+[book]
+authors = ["davnotdev"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Bubbel API Docs"
