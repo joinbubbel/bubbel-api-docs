@@ -4,9 +4,11 @@ All API bindings are generated from Rust code, so it's essential to understand h
 
 When describing types in this documentation, I will use my own Rust-Typescript hybrid language.
 
+Even if you do not know rust, I've highlighted 3 basic representations that I will use: `struct`, `enum`, and flattened `struct`.
+
 ## `struct` Representation
 
-Rust
+### Rust
 
 ```rust
 struct MyType {
@@ -16,7 +18,7 @@ struct MyType {
 }
 ```
 
-JSON
+### JSON
 
 ```json
 {
@@ -26,7 +28,7 @@ JSON
 }
 ```
 
-Typescript
+### Typescript
 
 > The typescript representation is by far the most straight forward.
 
@@ -38,7 +40,7 @@ interface MyType {
 }
 ```
 
-Swift
+### Swift
 
 > In certain programming languages, like swift, camel case is enforced.
 
@@ -58,17 +60,22 @@ struct MyType: Codable {
 ## `enum` Representation
 
 ```rust
+struct MyType {
+    name: String
+    user_data: String,
+    optional_data: Option<String>,
+}
+
 enum MyEnum {
     Unicorn,
     Pony {
         pony_name: String,
     },
-    //  `MyType` is defined above.
     OtherType(MyType),
 }
 ```
 
-JSON (Possibilities)
+### JSON (Possibilities)
 
 ```json
 {
@@ -92,7 +99,7 @@ JSON (Possibilities)
 }
 ```
 
-Typescript
+### Typescript
 
 ```typescript
 interface MyEnum {
@@ -103,6 +110,49 @@ interface MyEnum {
     name: String | null,
     user_data: String | null,
     optional_data: String | null,
+}
+```
+
+## Flattened `struct` Representation
+
+### Rust
+
+```rust
+struct FooType {
+    hello: String,
+    world: String,
+}
+
+struct BarType {
+    bubbel: String,
+
+    #[flatten]
+    some_inner_data: FooType,
+}
+```
+
+### JSON
+
+```json
+{
+    "bubbel": "...",
+
+    "hello": "...",
+    "world": "...",
+}
+```
+
+> Note how the `some_inner_data` no longer appears.
+> It has been flattened.
+
+### Typescript
+
+```typescript
+interface BarType {
+    bubbel: String,
+
+    hello: String,
+    world: String,
 }
 ```
 
