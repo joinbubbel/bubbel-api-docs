@@ -1,5 +1,7 @@
 # Flow
 
+## Websocket Flow
+
 The flow of the data channel is as follows:
 
 ```
@@ -19,26 +21,32 @@ DataChannelResponse     <recv=
 DataChannelRequest      =send>
 ```
 
+## Chunk Loading
+
 Also remember to load saved chunks.
 You can do this using the following typescript:
 
 ```typescript
 let initResponse = initMessage as backend.DataChannelInitResponse;
-for (let i = initResponse.current_chunk!; i >= 0; i--) {
-    let loadedChunk = await bubbelApiGetDataChannelChunk({
-        channel_id: channelId,
-        chunk_index: 0,
-        token,
-    });
-    if (loadedChunk.error) {
-        //  Got error.
-    } else {
-        for (let itemIndex in loadedChunk.res!.chunk.items) {
-            let item = loadedChunk.res!.chunk.items[itemIndex];
-            //  Got chunk item.
+if (initResponse.error) {
+    //  Got Error.
+} else {
+    for (let i = initResponse.current_chunk!; i >= 0; i--) {
+        let loadedChunk = await bubbelApiGetDataChannelChunk({
+            channel_id: channelId,
+            chunk_index: 0,
+            token,
+        });
+
+        if (loadedChunk.error) {
+            //  Got error.
+        } else {
+            for (let itemIndex in loadedChunk.res!.chunk.items) {
+                let item = loadedChunk.res!.chunk.items[itemIndex];
+                //  Got chunk item.
+            }
         }
     }
 }
-
 ```
 
