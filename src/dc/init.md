@@ -1,5 +1,13 @@
 # `Initialization`
 
+To initialize the data channel, first send a `DataChannelInitRequest`.
+If all goes well, `DataChannelInitResponse` is sent back.
+
+If ANY OTHER DATA is sent at this point, the socket simply closes.
+If either `token` or `channel` are invalid, `error` will be set.
+
+If there are no errors, `current_chunk` will be set.
+
 ## `DataChannelInitRequest`
 
 ```rust
@@ -13,7 +21,6 @@ pub struct DataChannelInitRequest {
 
 ```rust
 pub struct DataChannelInitResponse {
-    /// `null` if there was an `error`
     pub current_chunk: Option<DataChunkIndex>,
     pub error: Option<DataChannelInitError>,
 }
@@ -28,4 +35,7 @@ pub enum DataChannelInitError {
     Internal { ierror: String },
 }
 ```
+
+`NoAuth` occurs when `token` is invalid.
+`ChannelNotFound` can occur either if the channel doesn't exist or if it has been deleted.
 

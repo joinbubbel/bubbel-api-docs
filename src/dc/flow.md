@@ -21,10 +21,17 @@ DataChannelResponse     <recv=
 DataChannelRequest      =send>
 ```
 
+Essentially, you will need to send an `DataChannelInitRequest` to start the data channel.
+Sending ANY OTHER DATA will cause the channel to close.
+A `DataChannelInitResponse` will be recieved containing the chunks that need to be loaded.
+All messages afterwards are `DataChannelResponse`s.
+Commands can be sent with `DataChannelRequest`.
+
+> Note that ANY INCORRECT USE OF TYPES will most likely result in the socket closing without an error.
+
 ## Chunk Loading
 
-Also remember to load saved chunks.
-You can do this using the following typescript:
+You can load data chunks with the following typescript.
 
 ```typescript
 let initResponse = initMessage as backend.DataChannelInitResponse;

@@ -6,3 +6,7 @@ pub struct Text {
 }
 ```
 
+The most primitive, caveman type of message.
+
+> Text limits have yet to be discussed.
+

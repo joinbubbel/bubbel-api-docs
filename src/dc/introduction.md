@@ -9,9 +9,12 @@ For this reason, we maintain one system for all of these use cases: the **Data C
 Data channels are very simple.
 You can:
 
-1. "send" messages.
-2. "delete" messages.
-3. "edit" messages.
+1. send messages.
+2. delete messages.
+3. edit messages.
+
+All connected clients are notified when an important event occurs.
+Notifications are sent in real time without polling!
 
 Messages are stored in **chunks** where each chunk stores a certain number of saved messages.
 

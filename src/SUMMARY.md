@@ -18,10 +18,8 @@
 - [API Flow](./dc/flow.md)
 - [Identifier Types](./dc/id.md)
 - [Initialization Types](./dc/init.md)
-- [Request Types](./dc/commands/request.md)
-    - [Send Command](./dc/commands/send.md)
+- [Request Types](./dc/request.md)
 - [Response Types](./dc/response.md)
-    - [On New](./dc/res/on_new.md)
 - [Message Types](./dc/messages/message.md)
     - [Text](./dc/messages/text.md)
 
