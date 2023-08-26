@@ -113,6 +113,8 @@ interface MyEnum {
 }
 ```
 
+> There are a few execptions in these docs, but I will point them out.
+
 ## Flattened `struct` Representation
 
 ### Rust

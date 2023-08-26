@@ -51,5 +51,7 @@ This should never occur.
 
 ## Notes
 
-None
+Creating a user creates an unverified account.
+However, it does not send the verification code.
+You must call [`/api/send_verify`](./send_verify.md).
 

@@ -8,6 +8,18 @@
 
 - [User API Identifiers](./user/id.md)
 - [/api/create_user](./user/create_user.md)
+- [/api/send_verify](./user/send_verify.md)
+- [/api/verify_account](./user/verify_account.md)
+- [/api/auth_user](./user/auth_user.md)
+- [/api/deauth_user](./user/deauth_user.md)
+- [/api/check_token](./user/check_token.md)
+- [User Profiles](./user/user_profile.md)
+    - [/api/get_user_profile](./user/get_user_profile.md)
+- [Friend Status](./user/friend_status.md)
+    - [/api/add_friend_connection](./user/add_friend_connection.md)
+    - [/api/get_friend_connection](./user/get_friend_connections.md)
+    - [/api/remove_friend](./user/remove_friend.md)
+
 
 # Club APIs
 
