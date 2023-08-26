@@ -13,6 +13,7 @@
 - [/api/auth_user](./user/auth_user.md)
 - [/api/deauth_user](./user/deauth_user.md)
 - [/api/check_token](./user/check_token.md)
+- [/api/username_to_id](./user/username_to_id.md)
 - [User Profiles](./user/user_profile.md)
     - [/api/get_user_profile](./user/get_user_profile.md)
 - [Friend Status](./user/friend_status.md)
