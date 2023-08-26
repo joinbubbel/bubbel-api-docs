@@ -6,6 +6,7 @@
 
 # User APIs
 
+- [User API Identifiers](./user/id.md)
 - [/api/create_user](./user/create_user.md)
 
 # Club APIs
