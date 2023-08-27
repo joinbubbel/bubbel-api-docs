@@ -21,6 +21,7 @@ An invalid `token` will cause an error to be sent back.
 pub enum DataChannelCommandType {
     Send(DataChannelCommandSend),
     Delete(DataChannelCommandDelete),
+    Edit(DataChannelCommandEdit),
 }
 ```
 
@@ -34,7 +35,34 @@ pub struct DataChannelCommandSend {
 
 All `Message` types can be found [here](./messages/message.md).
 
+Only the `NoAuth` and `ChannelNotFound` errors may occur.
+
 ## Deleting Data: `Delete`
 
-> Work in Progress!
+```rust
+pub struct DataChannelCommandDelete {
+    chunk: DataChunkIndex,
+    index: Integer,
+}
+```
+
+All `Message` types can be found [here](./messages/message.md).
+`chunk` refers to the index of the data chunk containing the message and `index` refers to the message's index within the chunk.
+
+The errors `NoAuth`, `ChunkNotFound`, `DataItemNotFound`, and `DataItemDeleted` may occur.
+
+## Editing Data: `Edit`
+
+```rust
+pub struct DataChannelCommandEdit {
+    chunk: DataChunkIndex,
+    index: Integer,
+    new_message: Message,
+}
+```
+
+All `Message` types can be found [here](./messages/message.md).
+`chunk` refers to the index of the data chunk containing the message and `index` refers to the message's index within the chunk.
+
+The errors `NoAuth`, `ChunkNotFound`, `DataItemNotFound`, and `DataItemDeleted` may occur.
 
