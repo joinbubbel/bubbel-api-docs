@@ -34,26 +34,22 @@ Commands can be sent with `DataChannelRequest`.
 You can load data chunks with the following typescript.
 
 ```typescript
-let initResponse = initMessage as backend.DataChannelInitResponse;
-if (initResponse.error) {
-    //  Got Error.
-} else {
-    for (let i = initResponse.current_chunk!; i >= 0; i--) {
-        let loadedChunk = await bubbelApiGetDataChannelChunk({
-            channel_id: channelId,
-            chunk_index: 0,
-            token,
-        });
-
-        if (loadedChunk.error) {
-            //  Got error.
-        } else {
-            for (let itemIndex in loadedChunk.res!.chunk.items) {
-                let item = loadedChunk.res!.chunk.items[itemIndex];
-                //  Got chunk item.
-            }
-        }
+let initResponse = msg as backend.DataChannelInitResponse;
+for (let i = 0; i <= initResponse.current_chunk!; i++) {
+  let loadedChunk = await backend.bubbelApiGetDataChannelChunk({
+    channel_id: channelId,
+    chunk_index: i,
+    token,
+  });
+  if (loadedChunk.error) {
+    //  Got Error
+  } else {
+    console.log("Got a saved chunk!", loadedChunk.res!.chunk);
+    for (let itemIndex in loadedChunk.res!.chunk.items) {
+      let item = loadedChunk.res!.chunk.items[itemIndex];
+      //  Got Item
     }
+  }
 }
 ```
 
