@@ -1,0 +1,42 @@
+# Checklist
+
+- [x] `/api/create_user`
+- [x] `/api/auth_user`
+- [x] `/api/deauth_user`
+- [x] `/api/verify_account`
+- [x] `/api/send_verify`
+- [x] `/api/set_user_profile`
+- [x] `/api/get_user_profile`
+- [x] `/api/delete_user`
+- [ ] `/api/create_club`
+- [ ] `/api/get_club_profile`
+- [ ] `/api/set_club_profile`
+- [ ] `/api/delete_club`
+- [ ] `/api/get_user_profile_with_username`
+- [x] `/api/add_friend_connection`
+- [x] `/api/get_friend_connections`
+- [x] `/api/remove_friend`
+- [ ] `/api/join_club`
+- [ ] `/api/unjoin_club`
+- [ ] `/api/get_club_members`
+- [ ] `/api/get_user_clubs`
+- [ ] `/api/regex_search_clubs`
+- [ ] `/api/regex_search_users`
+- [ ] `/api/get_random_clubs`
+- [x] `/api/check_token`
+- [ ] `/api/unsafe_add_file`
+- [x] `/api/get_data_channel_chunk`
+- [ ] `/api/get_club_profile_with_name`
+- [ ] `/api/get_random_users`
+- [x] `/api/username_to_id`
+- [ ] `/api/create_message_room`
+- [ ] `/api/get_message_room`
+- [ ] `/api/join_message_room`
+- [ ] `/api/get_club_message_rooms`
+- [ ] `/api/get_message_room_members`
+- [x] `/api/upload_base64`
+- [x] `/api/upload_loose_base64`
+- [x] `/api/resolve_and_upload`
+- [ ] `/api/create_message_group`
+- [ ] `/api/add_user_to_message_group`
+
